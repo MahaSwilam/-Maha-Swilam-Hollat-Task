@@ -1,0 +1,26 @@
+{
+  "beneficiaries": [
+    {
+      "id": "9921",
+      "fullName": "Maha",
+      "email": "maha.swilam@gmail.com",
+      "technologies": "Angular, React, HTML, CSS, SASS",
+      "password": "123"
+    },
+    {
+      "id": "a067",
+      "fullName": "Ali",
+      "email": "ali@gmail.com",
+      "technologies": "angular",
+      "password": "456"
+    },
+    {
+      "id": "4312",
+      "fullName": "admin",
+      "email": "admin@gmail.com",
+      "technologies": "administration",
+      "password": "135"
+    }
+  ],
+  "acceptedBeneficiaries": []
+}

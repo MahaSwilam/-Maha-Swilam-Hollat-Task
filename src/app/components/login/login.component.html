@@ -1,0 +1,50 @@
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="loginUser()"
+  class="flex justify-content-center align-items-center h-full"
+>
+  <p-card header="Log In" [style]="{ width: '360px' }">
+    <div class="field">
+      <label for="fullName">FullName</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="fullName"
+        class="w-full"
+        name="fullName"
+        placeholder="Type your full name"
+      />
+      <small
+        *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+        class="block"
+      >
+        <div *ngIf="fullName.errors?.['required']">Name is required</div>
+        <div *ngIf="fullName.errors?.['pattern']">Enter a valid name</div>
+      </small>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        pInputText
+        formControlName="password"
+        class="w-full"
+        name="password"
+        placeholder="Type your password"
+      />
+      <small
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="block"
+      >
+        <div *ngIf="password.errors?.['required']">Password is required</div>
+      </small>
+    </div>
+    <p-button
+      label="Sign in"
+      styleClass="w-full"
+      [disabled]="loginForm.invalid"
+      type="submit"
+    />
+    <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
+  </p-card>
+</form>

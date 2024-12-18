@@ -1,0 +1,58 @@
+<div class="top-0 flex bg-gray-900 p-3">
+  <p-button
+    class="flex-order-2 ml-auto"
+    label="Sign Out"
+    (onClick)="logOut()"
+  />
+</div>
+
+<div class="block">
+  <h1 class="flex justify-content-center align-items-center mt-8 text-teal-600">
+    Beneficiaries List
+  </h1>
+  <input
+    type="search"
+    class="block m-auto h-3rem text-base"
+    [(ngModel)]="searchText"
+    placeholder="Search"
+    aria-label="search"
+  />
+
+  <!-- <button (onClick)="sortName(beneficiariesArray)">Sort</button> -->
+
+  <table class="m-auto mt-5">
+    <thead>
+      <tr class="bg-gray-900 text-blue-50">
+        <th class="p-3">Beneficiary Name</th>
+        <th>Email</th>
+        <th>Technologies</th>
+        <th *ngIf="acceptBtnVisible">Accept Beneficiary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let beneficiary of beneficiariesArray | search : searchText"
+        [(ngModel)]="beneficiaryObject"
+        ngDefaultControl
+      >
+        <td class="p-4 border-1 border-solid border-200">
+          {{ beneficiary.fullName }}
+        </td>
+        <td class="p-4 border-1 border-solid border-200">
+          {{ beneficiary.email }}
+        </td>
+        <td class="p-4 border-1 border-solid border-200">
+          {{ beneficiary.technologies }}
+        </td>
+        <td class="p-4 border-1 border-solid border-200">
+          <p-button
+            class="flex-order-2 ml-auto"
+            label="Accept"
+            *ngIf="acceptBtnVisible"
+            (onClick)="acceptBeneficiariesFn($event, beneficiary)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
